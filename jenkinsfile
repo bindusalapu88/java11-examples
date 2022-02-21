@@ -4,15 +4,19 @@ pipeline{
         cron('45 23 * * 1-5') 
         pollSCM('*/5 * * * *')    
     }
+    parameters{
+        string(name: 'MAVEN_GOAL', defaultValue: 'package', description: 'this is maven goal')
+        choice(name: 'BRANCH_TO_BUILD' choices: ['declarative', 'master', 'scripted'], description: 'BRANCH_TO_BUILD')
+    }
     stages{
         stage('scm'){
             steps{
-            git 'https://github.com/bindusalapu88/java11-examples.git'
+            git url: 'https://github.com/bindusalapu88/java11-examples.git', branch: "${params.BRANCH_TO_BUILT}"
             }
         }
         stage('build'){
             steps{
-            sh '/usr/local/apache-maven-3.8.4/bin/mvn clean package'     
+            sh "/usr/local/apache-maven-3.8.4/bin/mvn ${params.MAVEN_GOAL}"     
             }
         }
     }          
