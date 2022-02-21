@@ -3,14 +3,14 @@ pipeline{
     triggers { upstream(upstreamProjects: 'starterproject', threshold: hudson.model.Result.SUCCESS) }
     stages{
         stages('scm'){
-          steps{
+            steps{
             git 'https://github.com/bindusalapu88/java11-examples.git'
-          }
+            }
         }
         stages('build'){
-          steps{
+            steps{
             sh '/usr/local/apache-maven-3.8.4/bin/mvn clean package'     
-          }
+            }
         }
     }          
 }
