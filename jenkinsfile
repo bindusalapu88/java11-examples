@@ -6,7 +6,7 @@ pipeline{
     }
     parameters{
         string(name: 'MAVEN_GOAL', defaultValue: 'package', description: 'this is maven goal')
-        choice(name: 'BRANCH_TO_BUILD' choices: ['declarative', 'master', 'scripted'], description: 'BRANCH_TO_BUILD')
+        choice(name: 'BRANCH_TO_BUILD', choices: ['declarative', 'master', 'scripted'], description: 'Branch to build')
     }
     stages{
         stage('scm'){
