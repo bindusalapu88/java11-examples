@@ -19,9 +19,7 @@ node('jdk11-mvn3.8.4') {
         }    
         currentBuild.result = 'success'
     }
-    catch(err) {
-        currentBuild.result = 'FAILURE'
-    }
+    
     finally {
         mail to: 'mailtobindu88@gmail.com',
         subject: "Status of the pipeline: ${currentBuild.fullDispplayName}",
