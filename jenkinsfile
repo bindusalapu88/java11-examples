@@ -18,8 +18,16 @@ pipeline{
             steps{
             sh "/usr/local/apache-maven-3.8.4/bin/mvn ${params.MAVEN_GOAL}"     
             }
+        }   
+    }    
+    post {
+        always {
+            mail from: 'mailtobindu88@gmail.com'
+            to: 'team@qt.com'
+            subject: "Stetus of the pipeline ${currentBuild.fullDiaplayName}"
+            body: "${env.Build-URL} has a result ${currentBuild.result}"
         }
-    }          
+    }             
 }
 
 
