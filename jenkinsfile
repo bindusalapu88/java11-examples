@@ -24,7 +24,7 @@ node('jdk11-mvn3.8.4') {
     }
     finally {
         mail to: 'mailtobindu88@gmail.com',
-        subject: "Status of the pipeline: ${currentBuild.fullDispplayname}",
+        subject: "Status of the pipeline: ${currentBuild.fullDispplayName}",
         body: "${env.Build-URL} has result ${currentBuild.result}"
     }
 }          
