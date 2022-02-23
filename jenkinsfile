@@ -23,8 +23,8 @@ node('jdk11-mvn3.8.4') {
          currentBuild.result='FAILURE'
     }
     finally {
-        mailto: 'mailtobindu88@gmail.com'
-        subject: "Status of the pipeline: ${currentBuild.fullDispplayname}"
+        mailto: 'mailtobindu88@gmail.com',
+        subject: "Status of the pipeline: ${currentBuild.fullDispplayname}",
         body: "${env.Build-URL} has result ${currentBuild.result}"
     }
 }          
