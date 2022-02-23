@@ -32,7 +32,7 @@ pipeline{
                 </a>"</p> <p><i>Build log is attached </i> </p>""",
                 compressLog: true,
                 replyTo: "do-not-reply@qt.com",
-                to: "qtdevops@gmail.com",
+                to: "bindusalapu88@gmail.com",
                 subject: "${env.JOB_NAME} - Build ${env.BUILD_NUMBER} -Status ${currentBuild.result}"
  
         }
