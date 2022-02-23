@@ -22,14 +22,13 @@ pipeline{
     }    
     post {
         always {
-            mail from: "mailtobindu88@gmail.com",
-                to: 'bindusalapu88@qt.com',
-                subject: "Status of the pipeline ${currentBuild.fullDiaplayName}",
-                body: "${env.BUILD-URL} has a result ${currentBuild.result}"
+            mail from: "mailtobindu88@gmial.com",
+                to: 'bindusalapu88@gmail.com',
+                subject: "Status of the pipeline ${currentBuild.fullDisplayName}",
+                body: "${env.BUILD_URL} has a result ${currentBuild.result}"
+
         }
-    }             
+    }
 }
-
-
 
 
