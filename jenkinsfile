@@ -22,10 +22,10 @@ pipeline{
     }    
     post {
         always {
-            mail from: 'mailtobindu88@gmail.com',
+            mail from: 'mailtobindu@gmail.com',
                 to: 'team@qt.com',
-                subject: "Stetus of the pipeline ${currentBuild.fullDiaplayName}",
-                body: "${env.Build-URL} has a result ${currentBuild.result}"
+                subject: "Status of the pipeline ${currentBuild.fullDiaplayName}",
+                body: "${env.BUILD-URL} has a result ${currentBuild.result}"
         }
     }             
 }
