@@ -17,9 +17,11 @@ node('jdk11-mvn3.8.4') {
         stage('publish test reports') {
             junit '**/TEST-*.xml'
         }    
-        currentBuild.result = 'success'
+        currentBuild.result = 'SUCCESS'
     }
-    
+    catch (err){
+        currentBuild.result = 'FAILURE'
+    }    
     finally {
         mail to: 'mailtobindu88@gmail.com',
         subject: "Status of the pipeline: ${currentBuild.fullDispplayName}",
